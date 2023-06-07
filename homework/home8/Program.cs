@@ -38,7 +38,7 @@
 //     Console.WriteLine();
 // }
 
-// int[,] sorted(int[,] array)
+//int[,] sorted(int[,] array)
 // {
 //     for (int i = 0; i < array.GetLength(0); i++)
 //     {
@@ -154,3 +154,164 @@
 // Print2DArray(MyArray);
 // int[] temp = SumRows(MyArray);
 // MinSum(temp);
+
+
+/*Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+Например, даны 2 матрицы:
+2 4 | 3 4
+3 2 | 3 3
+Результирующая матрица будет:
+18 20
+15 18
+*/
+
+// РЕШЕНИЕ
+
+// int[,] Creat2DRandomArray(int rows, int colums, int minValue, int maxValue)
+// {
+//     int[,] array = new int[rows, colums];
+//     for (int i = 0; i < rows; i++)
+//     {
+//         for (int j = 0; j < colums; j++)
+//         {
+//             array[i, j] = new Random().Next(minValue, maxValue);
+//         }
+//     }
+//     return array;
+// }
+
+// void Print2DArray(int[,] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+//     Console.WriteLine();
+// }
+
+// int[,] MatrixMulti(int[,] arrayA, int[,] arrayB)
+// {
+//     int[,] arrayC = new int[arrayB.GetLength(0), arrayB.GetLength(1)];
+//     for (int i = 0; i < arrayA.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arrayA.GetLength(1); j++)
+//         {
+//             for (int k = 0; k < arrayB.GetLength(1); k++)
+//             {
+//                 arrayC[i, j] += arrayA[i, k] * arrayB[k, j];
+//             }
+//         }
+
+
+//     }
+//     return arrayC;
+// }
+
+// void CheckPrint(int[,] arrayA, int[,] arrayB)
+// {
+//     if (arrayA.GetLength(0) == arrayB.GetLength(0) && arrayA.GetLength(1) == arrayB.GetLength(1))
+//     {
+//         int[,] arrayC = MatrixMulti(arrayA, arrayB);
+//         Print2DArray(arrayA);
+//         Print2DArray(arrayB);
+//         Console.WriteLine("Произведение матриц А и В");
+//         Print2DArray(arrayC);
+//     }
+//     else Console.WriteLine("Размер матрицы А, должен быть равен размеру матрицы В");
+// }
+
+// Console.WriteLine("MATRIX A");
+// Console.WriteLine("write rows");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("write colums");
+// int colums = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("write minValue");
+// int minValue = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("write maxValue");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int[,] arrayA = Creat2DRandomArray(rows, colums, minValue, maxValue);
+
+// Console.WriteLine("MATRIX B");
+// Console.WriteLine("write rows");
+// int rows1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("write colums");
+// int colums1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("write minValue");
+// int minValue1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("write maxValue");
+// int maxValue1 = Convert.ToInt32(Console.ReadLine());
+
+// int[,] arrayB = Creat2DRandomArray(rows1, colums1, minValue1, maxValue1);
+
+// CheckPrint(arrayA, arrayB);
+
+
+
+/*Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+Массив размером 2 x 2 x 2
+66(0,0,0) 25(0,1,0)
+34(1,0,0) 41(1,1,0)
+27(0,0,1) 90(0,1,1)
+26(1,0,1) 55(1,1,1)
+*/
+
+// int[,,] Creat3DRandomArray(int rows, int colums, int depth)
+// {
+//     int[,,] array = new int[rows, colums, depth];
+//     int temp = new Random().Next(10, 100);
+//     for (int i = 0; i < rows; i++)
+//     {
+//         for (int j = 0; j < colums; j++)
+//         {
+//             for (int k = 0; k < depth; k++)
+//             {
+//                 array[i, j, k] = new Random().Next(10, 100);
+//                 if(array[i, j, k] == temp)
+//                 {
+//                     while(array[i, j, k] == temp)
+//                     {
+//                         array[i, j, k] = new Random().Next(10, 100);
+//                     }
+//                     temp = array[i, j, k];
+//                 }
+//                 else temp = array[i, j, k];
+//             }
+//         }
+//     }
+//     return array;
+// }
+
+
+// void Print3DArray(int[,,] array)
+// {
+//     Console.WriteLine();
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             for (int k = 0; k < array.GetLength(2); k++)
+//             {
+//                 Console.Write($"{array[i, j, k]}({i},{j},{k}) ");
+//             }
+//             Console.WriteLine();
+//         }
+
+//     }
+//     Console.WriteLine();
+// }
+
+// Console.WriteLine("write rows");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("write colums");
+// int colums = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("write depth");
+// int depth = Convert.ToInt32(Console.ReadLine());
+
+// int[,,] MyArray = Creat3DRandomArray(rows, colums, depth);
+// Print3DArray(MyArray);
